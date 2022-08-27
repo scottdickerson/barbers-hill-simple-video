@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple video player that starts with a pullscreen, plays a video and then resets to the pullscreen.
+Which videos to play are configurable through the `.env` file. Store the video file for the PullScreen and the VideoPlayer in the `public/static` directory. Update each variable in the `.env` file to point to the correct video name.
 
 ## Available Scripts
 

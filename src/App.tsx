@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { PullScreen } from "./components/PullScreen/PullScreen";
+import { VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { ROUTES } from "./constants";
 
 function App() {
+  const navigate = useNavigate();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route
+          path={ROUTES.PULLSCREEN_URL}
+          element={<PullScreen onClick={() => navigate(ROUTES.VIDEO_URL)} />}
+        />
+        <Route
+          path={ROUTES.VIDEO_URL}
+          element={
+            <VideoPlayer
+              onVideoStopped={() => navigate(ROUTES.PULLSCREEN_URL)}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 }
