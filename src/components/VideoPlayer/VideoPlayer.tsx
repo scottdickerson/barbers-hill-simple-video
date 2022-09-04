@@ -9,11 +9,18 @@ export const VideoPlayer = ({ onVideoStopped }: VideoPlayerProps) => {
     console.log("loading video", process.env.REACT_APP_VIDEO_NAME);
   }, []);
   return (
-    <video
-      onEnded={onVideoStopped}
-      className={styles.videoPlayer}
-      src={`/videos/${process.env.REACT_APP_VIDEO_NAME}`}
-      autoPlay
-    ></video>
+    <div className={styles.videoContainer}>
+      <img
+        className={styles.videoImage}
+        src={`/images/${process.env.REACT_APP_VIDEO_STILL_IMAGE_NAME}`}
+        alt="placeholder"
+      ></img>
+      <video
+        onEnded={onVideoStopped}
+        className={styles.videoPlayer}
+        src={`/videos/${process.env.REACT_APP_VIDEO_NAME}`}
+        autoPlay
+      ></video>
+    </div>
   );
 };
